@@ -23,8 +23,7 @@
             android:layout_marginStart="70dp"
             android:layout_marginEnd="15dp"
             android:textColorHint="#BDBDBD"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
         <ImageButton
             android:id="@+id/btn_search"

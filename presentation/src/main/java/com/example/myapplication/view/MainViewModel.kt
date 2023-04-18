@@ -21,23 +21,17 @@ class MainViewModel @Inject constructor(
     val gitHubData: LiveData<GitHubContent> = _gitHubData
 
 
-    init {
-        initData()
-    }
 
-    private fun initData(){
+
+    fun searchData(searchTitle: String) {
         viewModelScope.launch {
             gitHubDataUseCase.searchRepositories(
-                q = "ygs",
+                q = searchTitle,
                 10,
                 1
             ).run {
-                if (this.isSuccess){
+                if (this.isSuccess) {
                     _gitHubData.value = this.getOrNull()
-                } else {
-                    this.onFailure {
-                        Log.d("테스트","실패 ${it.message}")
-                    }
                 }
             }
         }

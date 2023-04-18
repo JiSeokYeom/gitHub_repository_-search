@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainRv.adapter = adapter
 
+        binding.btnSearch.setOnClickListener {
+            viewModel.searchData(binding.repositoryInput.text.toString())
+        }
+
         viewModel.gitHubData.observe(this){
             adapter.submitList(it.items)
         }
